@@ -4,7 +4,7 @@ import Fs from 'fs';
 const app = express()
 app.use(express.json())
 
-const users = []
+let users = []
 
 
 app.post('/', (req, res) => {
@@ -14,7 +14,7 @@ app.post('/', (req, res) => {
         return res.status(400).send("Falta dados")
     }
 
-    const data =  `Nome ${nome}, Idade ${idade}, email ${email}, post ${post}`;
+    const data = `Nome ${nome}, Idade ${idade}, email ${email}, post ${post}`;
 
     users.push(req.body)
 
@@ -25,13 +25,27 @@ app.post('/', (req, res) => {
 
     // Fs.unlinkSync("arquivo.txt")
 
-    // console.log(result + data);
-    
-
     // res.status(201).json(req.body)
     res.status(201).send(data)
-    
+
 })
+
+
+app.delete('/Usuarios/:nome', (req, res) => {
+    const nome = req.params.nome;
+    const initialLength = users.length;
+    
+    let updatedUsers = users.filter(user => user.nome !== nome);
+    
+    if (updatedUsers.length < initialLength) {
+      users = updatedUsers;  
+      Fs.writeFileSync("arquivo.txt", JSON.stringify(users, null, 2));
+      res.status(200).send(`Usuário ${nome} removido com sucesso!`);
+    } else {
+      res.status(404).send(`Usuário ${nome} não encontrado.`);
+    }
+  
+});
 
 
 app.get('/Usuarios', (req, res) => {
@@ -41,5 +55,5 @@ app.get('/Usuarios', (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+    console.log(`Servidor rodando na porta ${PORT}`);
 })

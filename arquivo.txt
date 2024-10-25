@@ -1,13 +1,6 @@
 [
   {
-    "nome": "Eldissone Vilonga",
-    "idade": 19,
-    "email": "contacto@eldissone.com",
-    "post": "Olá mundo esse é meu primeiro post"
-  }
-][
-  {
-    "nome": "Eldissone Vilonga",
+    "nome": "Vilonga",
     "idade": 19,
     "email": "contacto@eldissone.com",
     "post": "Olá mundo esse é meu primeiro post"
