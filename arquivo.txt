@@ -1,0 +1,20 @@
+[
+  {
+    "nome": "José Abel",
+    "idade": 15,
+    "email": "contacto@eldissone.com",
+    "post": "Olá mundo esse é meu primeiro post"
+  },
+  {
+    "nome": "Abel",
+    "idade": 19,
+    "email": "contacto@eldissone.com",
+    "post": "Olá mundo esse é meu primeiro post"
+  },
+  {
+    "nome": "Abel",
+    "idade": 19,
+    "email": "contacto@eldissone.com",
+    "post": "Olá mundo esse é meu primeiro post"
+  }
+]Nome Abel, Idade 19, email contacto@eldissone.com, post Olá mundo esse é meu primeiro post
